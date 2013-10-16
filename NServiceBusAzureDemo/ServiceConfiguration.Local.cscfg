@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="NServiceBusAzureDemo" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2013-03.2.0">
+  <Role name="Worker">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      
+      <Setting name="AzureQueueConfig.ConnectionString" value="UseDevelopmentStorage=true"/>
+      <Setting name="AzureQueueConfig.QueueName" value="orderserviceinputqueue" />
+
+      <Setting name="AzureProfileConfig.Profiles" value="NServiceBus.Development" />
+      <Setting name="AzureSubscriptionStorageConfig.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="AzureSubscriptionStorageConfig.TableName" value="MySubscriptions" />
+      <Setting name="MessageForwardingInCaseOfFaultConfig.ErrorQueue" value="error" />
+      <Setting name="TransportConfig.MaximumConcurrencyLevel" value="1" />
+      <Setting name="TransportConfig.MaxRetries" value="5" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
